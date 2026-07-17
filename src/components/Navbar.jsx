@@ -37,7 +37,7 @@ export default function Navbar() {
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
       >
         <a href="#top" className="flex items-center gap-2 focus-ring rounded">
-          <img src="/logo_dark.png" alt="Junior CEO" className="h-9 w-auto" />
+          <img src="/logo_dark.png" alt="Junior CEO" className="h-[2.7rem] w-auto" />
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">

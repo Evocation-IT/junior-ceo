@@ -5,20 +5,8 @@ export default function Footer() {
   return (
     <footer className="bg-jc-ink px-6 py-14 text-jc-white/80">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between">
-          <img src="/logo_dark.png" alt="Junior CEO" className="h-10 w-auto" />
-
-          <ul className="flex flex-wrap justify-center gap-6 text-sm">
-            {footer.links.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="focus-ring hover:text-jc-yellow">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex gap-4">
+        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-3">
+          <div className="order-2 flex justify-center gap-4 md:order-1 md:justify-start">
             <a href="#" aria-label="Facebook (placeholder link)" className="focus-ring hover:text-jc-yellow">
               <Share2 size={20} />
             </a>
@@ -29,6 +17,22 @@ export default function Footer() {
               <Globe size={20} />
             </a>
           </div>
+
+          <img
+            src="/logo_dark.png"
+            alt="Junior CEO"
+            className="order-1 h-16 w-auto justify-self-center md:order-2"
+          />
+
+          <ul className="order-3 flex flex-wrap justify-center gap-6 text-sm md:justify-end">
+            {footer.links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="focus-ring hover:text-jc-yellow">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-8 text-center">
