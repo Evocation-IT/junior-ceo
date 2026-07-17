@@ -3,32 +3,25 @@ import { sdgs } from '../data/content'
 import Section, { useSectionReveal } from './Section'
 import SectionEyebrow from './SectionEyebrow'
 
-const badgeStyles = [
-  'bg-jc-magenta text-jc-white',
-  'bg-jc-cyan text-jc-ink',
-  'bg-jc-yellow text-jc-ink',
-  'bg-jc-blue text-jc-white',
-  'bg-jc-ink text-jc-white',
-]
-const tilts = ['-rotate-3', 'rotate-2', '-rotate-2', 'rotate-3', '-rotate-1']
+const tilts = ['-rotate-2', 'rotate-1', '-rotate-1', 'rotate-2', '-rotate-1']
 
-function SdgBadge({ sdg, index }) {
+function SdgTile({ sdg, index }) {
   const variants = useSectionReveal()
   return (
-    <motion.div
-      variants={variants}
-      whileHover={{ scale: 1.08, rotate: 0 }}
-      className={`relative flex aspect-square flex-col items-center justify-center gap-1 rounded-full border-2 border-jc-ink p-4 text-center shadow-[3px_3px_0_0_#14161B] ${
-        badgeStyles[index % badgeStyles.length]
-      } ${tilts[index % tilts.length]}`}
-    >
-      <span
-        aria-hidden="true"
-        className="absolute inset-1.5 rounded-full border-2 border-dashed border-current opacity-50"
-      />
-      <span className="text-2xl font-extrabold">{sdg.number}</span>
-      <span className="text-[10px] font-semibold leading-tight">{sdg.label}</span>
-    </motion.div>
+    <div className={tilts[index % tilts.length]}>
+      <motion.div
+        variants={variants}
+        whileHover={{ scale: 1.06 }}
+        className="overflow-hidden rounded-xl border-2 border-jc-ink shadow-[4px_4px_0_0_#14161B]"
+      >
+        <img
+          src={sdg.icon}
+          alt={`UN Sustainable Development Goal ${sdg.number}: ${sdg.label}`}
+          className="block h-full w-full"
+          loading="lazy"
+        />
+      </motion.div>
+    </div>
   )
 }
 
@@ -40,14 +33,11 @@ export default function SDGAlignment() {
         Program Designed as per UN SDGs
       </h2>
 
-      <div className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 sm:grid-cols-5">
+      <div className="mx-auto mt-12 grid max-w-4xl grid-cols-3 gap-6 sm:grid-cols-5 sm:gap-8">
         {sdgs.map((sdg, i) => (
-          <SdgBadge key={sdg.number} sdg={sdg} index={i} />
+          <SdgTile key={sdg.number} sdg={sdg} index={i} />
         ))}
       </div>
-      <p className="mt-6 text-xs text-jc-slate">
-        Placeholder badges — replace with official UN SDG icons before launch.
-      </p>
     </Section>
   )
 }

@@ -89,11 +89,11 @@ export const marketTrends = [
 ]
 
 export const sdgs = [
-  { number: 4, label: 'Quality Education' },
-  { number: 8, label: 'Decent Work & Economic Growth' },
-  { number: 9, label: 'Industry, Innovation & Infrastructure' },
-  { number: 10, label: 'Reduced Inequalities' },
-  { number: 17, label: 'Partnerships for the Goals' },
+  { number: 4, label: 'Quality Education', icon: '/sdg/sdg-4.png' },
+  { number: 8, label: 'Decent Work & Economic Growth', icon: '/sdg/sdg-8.png' },
+  { number: 9, label: 'Industry, Innovation & Infrastructure', icon: '/sdg/sdg-9.png' },
+  { number: 10, label: 'Reduced Inequalities', icon: '/sdg/sdg-10.png' },
+  { number: 17, label: 'Partnerships for the Goals', icon: '/sdg/sdg-17.png' },
 ]
 
 export const swot = {
